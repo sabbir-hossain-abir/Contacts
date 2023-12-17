@@ -57,13 +57,6 @@ public class LoginActivity extends AppCompatActivity {
 
                         if (username.equals(signupUserName) && password.equals(singupPassword)) {
 
-                            //Useless
-//                            SharedPreferences.Editor editor = preferences.edit();
-//                            editor.putString("username", username);
-//                            editor.putString("password", password);
-//                            editor.putBoolean("remember-me", false);
-//                            editor.apply();
-
                             Toast.makeText(LoginActivity.this, "Login Successful", Toast.LENGTH_SHORT).show();
                             // Navigate to Contact List Activity
                             Intent intent = new Intent(LoginActivity.this, ContactListActivity.class);

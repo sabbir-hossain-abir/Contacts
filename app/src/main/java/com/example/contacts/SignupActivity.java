@@ -21,7 +21,7 @@ public class SignupActivity extends AppCompatActivity {
     private Button signupButton;
     private TextView loginLink, usernameErrorText, emailErrorText, passwordErrorText;
     private CheckBox signupcheckbox;
-    SharedPreferences preferences;
+    SharedPreferences preferences, preferences1;
 
     private final static String EMAIL_PATTERN = "^[a-zA-Z0-9_+&*-/=?^|]{1,64}@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)*$";
 
@@ -32,11 +32,6 @@ public class SignupActivity extends AppCompatActivity {
 
         preferences = getSharedPreferences("Userinfo", 0);
 
-//        String checkbox = preferences.getString("remember-me", "");
-//        if (checkbox.equals(true)){
-//            Intent intent = new Intent(SignupActivity.this, ContactListActivity.class);
-//            startActivity(intent);
-//        }
 
         usernameField = findViewById(R.id.username_field);
         emailField = findViewById(R.id.email_field);
@@ -78,21 +73,21 @@ public class SignupActivity extends AppCompatActivity {
                         editor.putString("email", emailField.getText().toString());
                         editor.putString("password", passwordField.getText().toString());
                         editor.apply();
-                        Toast.makeText(SignupActivity.this,"Singup Completed", Toast.LENGTH_SHORT).show();
-                        Intent intent = new Intent(SignupActivity.this, ContactListActivity.class);
-
 
 //                        if(signupcheckbox.isChecked()){
 //                            preferences = SignupActivity.this.getSharedPreferences("checkbox", 0);
 //                            SharedPreferences.Editor editor1 = preferences.edit();
-//                            editor1.putString("remember", "true");
+//                            editor.putString("remember-me", "true");
 //                            editor1.apply();
 //                        }
 //                        else if(!signupcheckbox.isChecked()){
-//                            preferences = SignupActivity.this.getSharedPreferences("checkbox", MODE_PRIVATE);
+//                            preferences = SignupActivity.this.getSharedPreferences("checkbox", 0);
 //                            SharedPreferences.Editor editor1 = preferences.edit();
-//                            editor1.putString("remember", "false");
+//                            editor1.putString("remember-me", "false");
 //                        }
+
+                        Toast.makeText(SignupActivity.this,"Singup Completed", Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(SignupActivity.this, ContactListActivity.class);
 
                         startActivity(intent);
 
@@ -114,15 +109,12 @@ public class SignupActivity extends AppCompatActivity {
     }
 
     private boolean validateUsername(String username) {
-        // Implement your username validation logic here (e.g., minimum length, uniqueness)
         if (username.isEmpty()) {
             showError(usernameErrorText, "Username cannot be empty!");
             return false;
         } else if (username.length() < 4) {
             return false;
         }
-        // Additional checks for username uniqueness can be implemented here,
-        // such as querying a database or API.
         return true;
     }
 
@@ -131,7 +123,6 @@ public class SignupActivity extends AppCompatActivity {
     }
 
     private boolean validatePassword(String password) {
-        // Implement your password validation logic here (e.g., minimum length, complexity)
         if (password.isEmpty()) {
             showError(passwordErrorText, "Password cannot be empty!");
             return false;
