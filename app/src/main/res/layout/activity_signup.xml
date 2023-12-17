@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SignupActivity"
+    android:background="@color/blue"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:text="Signup"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:textColor="@color/white">
+    </TextView>
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#EEEEEE"
+        android:padding="12dp"
+        android:layout_weight="1">
+
+
+        <TableRow
+            android:layout_marginTop="8dp">
+            <TextView
+                android:text="Name"
+                android:textSize="16dp"
+                android:textStyle="bold"/>
+            <TextView
+                android:text=":"
+                android:textSize="16dp"
+                android:paddingLeft="8dp"
+                android:paddingRight="8dp"/>
+            <EditText
+                android:id="@+id/tvName"
+                android:text=""
+                android:textSize="16dp"
+                android:inputType="text"
+                android:layout_weight="1"/>
+        </TableRow>
+
+        <TableRow
+            android:layout_marginTop="8dp">
+            <TextView
+                android:text="Email"
+                android:textSize="16dp"
+                android:textStyle="bold"/>
+            <TextView
+                android:text=":"
+                android:textSize="16dp"
+                android:paddingLeft="8dp"
+                android:paddingRight="8dp"/>
+            <EditText
+                android:id="@+id/tvEmail"
+                android:text=""
+                android:textSize="16dp"
+                android:inputType="textEmailAddress"
+                android:layout_weight="1"/>
+        </TableRow>
+
+        <TableRow
+            android:layout_marginTop="8dp">
+            <TextView
+                android:text="Phone"
+                android:textSize="16dp"
+                android:textStyle="bold"/>
+            <TextView
+                android:text=":"
+                android:textSize="16dp"
+                android:paddingLeft="8dp"
+                android:paddingRight="8dp"/>
+            <EditText
+                android:id="@+id/tvPhone"
+                android:text=""
+                android:textSize="16dp"
+                android:inputType="number"
+                android:layout_weight="1"/>
+        </TableRow>
+        <TableRow
+            android:layout_marginTop="8dp">
+            <TextView
+                android:text="UserID"
+                android:textSize="16dp"
+                android:textStyle="bold"/>
+            <TextView
+                android:text=":"
+                android:textSize="16dp"
+                android:paddingLeft="8dp"
+                android:paddingRight="8dp"/>
+            <EditText
+                android:id="@+id/tvUserID"
+                android:text=""
+                android:textSize="16dp"
+                android:inputType="text"
+                android:layout_weight="1"/>
+        </TableRow>
+        <TableRow
+            android:layout_marginTop="8dp">
+            <TextView
+                android:text="Password"
+                android:textSize="16dp"
+                android:textStyle="bold"/>
+            <TextView
+                android:text=":"
+                android:textSize="16dp"
+                android:paddingLeft="8dp"
+                android:paddingRight="8dp"/>
+            <EditText
+                android:id="@+id/tvPassword"
+                android:text=""
+                android:textSize="16dp"
+                android:inputType="textPassword"
+                android:layout_weight="1"/>
+        </TableRow>
+        <TableRow
+            android:layout_marginTop="8dp">
+            <TextView
+                android:text="Re-enter Password"
+                android:textSize="16dp"
+                android:textStyle="bold"/>
+            <TextView
+                android:text=":"
+                android:textSize="16dp"
+                android:paddingLeft="8dp"
+                android:paddingRight="8dp"/>
+            <EditText
+                android:id="@+id/tvRePassword"
+                android:text=""
+                android:textSize="16dp"
+                android:layout_weight="1"
+                android:inputType="textPassword"/>
+        </TableRow>
+
+        <TableRow
+            android:layout_marginTop="8dp">
+            <CheckBox
+                android:id="@+id/cbUserID"
+                android:layout_gravity="left"
+                android:text="Remember User ID"
+                android:layout_span="3">
+            </CheckBox>
+        </TableRow>
+
+        <TableRow>
+            <CheckBox
+                android:id="@+id/cbPassword"
+                android:layout_gravity="left"
+                android:text="Remember Password"
+                android:layout_span="3">
+            </CheckBox>
+        </TableRow>
+
+        <TableRow
+            android:layout_marginTop="10dp">
+            <TextView
+                android:layout_span="2"
+                android:text="Already have account?"
+                android:textStyle="bold"/>
+            <TextView
+                android:text="Login"
+                android:textColor="#2196F3"/>
+        </TableRow>
+
+    </TableLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:orientation="horizontal">
+        <Button
+            android:id="@+id/btnExit"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="Exit"
+            android:textStyle="bold"
+            android:backgroundTint="@color/blue"
+            android:textColor="@color/white"/>
+        <Button
+            android:id="@+id/btnGo"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="Go"
+            android:textStyle="bold"
+            android:backgroundTint="@color/blue"
+            android:textColor="@color/white"/>
+
+    </LinearLayout>
+
+</LinearLayout>
