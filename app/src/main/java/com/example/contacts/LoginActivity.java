@@ -14,7 +14,7 @@ import android.widget.Toast;
 
 public class LoginActivity extends AppCompatActivity {
 
-    private EditText usernameField, passwordField, passwordErrorText;
+    private EditText usernameField, passwordField, usernameErrorText,passwordErrorText;
     private Button loginButton;
     private TextView signupLink;
     SharedPreferences preferences;
@@ -43,13 +43,13 @@ public class LoginActivity extends AppCompatActivity {
 
                     if (!validateUsername(username)) {
                         usernameField.setBackgroundColor(getResources().getColor(R.color.error_highlight));
-                        Toast.makeText(LoginActivity.this, "Username must be at least 4 characters!", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(LoginActivity.this, "Enter a valid username", Toast.LENGTH_SHORT).show();
                         return;
                     }
 
                     else if (!validatePassword(password)) {
                         passwordField.setBackgroundColor(getResources().getColor(R.color.error_highlight));
-                        Toast.makeText(LoginActivity.this, "Password must be at least 8 characters and contain at least one uppercase letter!", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(LoginActivity.this, "Incorrect Password", Toast.LENGTH_SHORT).show();
                         return;
                     }
                     // credential verification
@@ -80,7 +80,7 @@ public class LoginActivity extends AppCompatActivity {
 
     private boolean validateUsername(String username) {
         if (username.isEmpty()) {
-            showError(passwordErrorText, "Username cannot be empty!");
+            showError(usernameErrorText, "Username cannot be empty!");
             return false;
         }
         return true;

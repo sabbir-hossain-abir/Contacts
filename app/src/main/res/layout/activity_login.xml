@@ -27,12 +27,26 @@
       android:layout_height="wrap_content"
       android:hint="Username" />
 
+  <TextView
+      android:id="@+id/username_error_text"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:textColor="@color/error"
+      android:visibility="gone" />
+
   <EditText
       android:id="@+id/password_field"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
       android:hint="Password"
       android:inputType="textPassword" />
+
+  <TextView
+      android:id="@+id/password_error_text"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:textColor="@color/error"
+      android:visibility="gone" />
 
   <CheckBox
       android:id="@+id/login_checkbox"
