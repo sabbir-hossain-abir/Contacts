@@ -7,6 +7,8 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -15,9 +17,10 @@ import android.widget.Toast;
 public class LoginActivity extends AppCompatActivity {
 
     private EditText usernameField, passwordField, usernameErrorText,passwordErrorText;
+    private CheckBox loginCheckbox;
     private Button loginButton;
     private TextView signupLink;
-    SharedPreferences preferences;
+    SharedPreferences preferences, preferences1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,10 +29,20 @@ public class LoginActivity extends AppCompatActivity {
 
         usernameField = findViewById(R.id.username_field);
         passwordField = findViewById(R.id.password_field);
+        loginCheckbox = findViewById(R.id.login_checkbox);
         loginButton = findViewById(R.id.login_button);
         signupLink = findViewById(R.id.signup_link);
 
         preferences  = getSharedPreferences("Userinfo", 0);
+        preferences1 = getSharedPreferences("checkbox",0);
+        String checkbox = preferences1.getString("remember","");
+        if (checkbox.equals("true")){
+            Intent intent = new Intent(LoginActivity.this, ContactListActivity.class);
+            startActivity(intent);
+        }else if (checkbox.equals("false")){
+            Toast.makeText(this,"Your login info is unsaaved", Toast.LENGTH_SHORT).show();
+        }
+
 
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -74,6 +87,25 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(LoginActivity.this, SignupActivity.class));
+            }
+        });
+
+        loginCheckbox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
+                if (compoundButton.isChecked()){
+                    SharedPreferences preferences1 = getSharedPreferences("checkbox",0);
+                    SharedPreferences.Editor editor = preferences1.edit();
+                    editor.putString("remember","true");
+                    editor.apply();
+                    Toast.makeText(LoginActivity.this, "Checked", Toast.LENGTH_SHORT).show();
+                } else if (!compoundButton.isChecked()) {
+                    SharedPreferences preferences1 = getSharedPreferences("checkbox",0);
+                    SharedPreferences.Editor editor = preferences1.edit();
+                    editor.putString("remember","false");
+                    editor.apply();
+                    Toast.makeText(LoginActivity.this, "Unchecked", Toast.LENGTH_SHORT).show();
+                }
             }
         });
     }

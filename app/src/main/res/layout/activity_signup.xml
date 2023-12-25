@@ -62,12 +62,6 @@
         android:textColor="@color/error"
         android:visibility="gone" />
 
-    <CheckBox
-        android:id="@+id/signup_checkbox"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="left"
-        android:text="Remember Me" />
 
     <Button
         android:id="@+id/signup_button"

@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -20,8 +21,7 @@ public class SignupActivity extends AppCompatActivity {
     private EditText usernameField, emailField, passwordField;
     private Button signupButton;
     private TextView loginLink, usernameErrorText, emailErrorText, passwordErrorText;
-    private CheckBox signupcheckbox;
-    SharedPreferences preferences, preferences1;
+    SharedPreferences preferences;
 
     private final static String EMAIL_PATTERN = "^[a-zA-Z0-9_+&*-/=?^|]{1,64}@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)*$";
 
@@ -41,7 +41,6 @@ public class SignupActivity extends AppCompatActivity {
         usernameErrorText = findViewById(R.id.username_error_text);
         emailErrorText = findViewById(R.id.email_error_text);
         passwordErrorText = findViewById(R.id.password_error_text);
-        signupcheckbox = findViewById(R.id.signup_checkbox);
 
         signupButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -73,21 +72,8 @@ public class SignupActivity extends AppCompatActivity {
                         editor.putString("email", emailField.getText().toString());
                         editor.putString("password", passwordField.getText().toString());
                         editor.apply();
-
-//                        if(signupcheckbox.isChecked()){
-//                            preferences = SignupActivity.this.getSharedPreferences("checkbox", 0);
-//                            SharedPreferences.Editor editor1 = preferences.edit();
-//                            editor.putString("remember-me", "true");
-//                            editor1.apply();
-//                        }
-//                        else if(!signupcheckbox.isChecked()){
-//                            preferences = SignupActivity.this.getSharedPreferences("checkbox", 0);
-//                            SharedPreferences.Editor editor1 = preferences.edit();
-//                            editor1.putString("remember-me", "false");
-//                        }
-
                         Toast.makeText(SignupActivity.this,"Singup Completed", Toast.LENGTH_SHORT).show();
-                        Intent intent = new Intent(SignupActivity.this, ContactListActivity.class);
+                        Intent intent = new Intent(SignupActivity.this, LoginActivity.class);
 
                         startActivity(intent);
 
